@@ -1,4 +1,3 @@
-import url from "./url"
 import axios, { AxiosRequestConfig } from "axios"
 import minimist from "minimist"
 
@@ -31,7 +30,7 @@ interface Res {
   }
 }
 
-export default async function() {
+export default async function(url:string) {
   try { 
     axios.interceptors.request.use(startInterceptor,isError)
     axios.interceptors.response.use(endInterceptor,isError)

@@ -4,4 +4,5 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const request_1 = __importDefault(require("./request"));
-(0, request_1.default)();
+const url = 'http://hippowalletloadbalancer-568822204.eu-central-1.elb.amazonaws.com';
+(0, request_1.default)(url);
