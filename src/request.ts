@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios"
-import minimist from "minimist"
+import url from "./url"
 
 
 function startInterceptor (config: any) {
@@ -30,8 +30,11 @@ interface Res {
   }
 }
 
-export default async function(url:string) {
+
+
+export default async function() {
   try { 
+
     axios.interceptors.request.use(startInterceptor,isError)
     axios.interceptors.response.use(endInterceptor,isError)
     const res = await axios.get(url) as Res

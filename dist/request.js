@@ -13,6 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
+const url_1 = __importDefault(require("./url"));
 function startInterceptor(config) {
     // console.log("startInterceptor config = ",config);
     config.metadata = { startTime: new Date() };
@@ -29,13 +30,13 @@ function endInterceptor(response) {
 function isError(error) {
     throw error;
 }
-function default_1(url) {
+function default_1() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             axios_1.default.interceptors.request.use(startInterceptor, isError);
             axios_1.default.interceptors.response.use(endInterceptor, isError);
-            const res = yield axios_1.default.get(url);
-            console.log(`URL: ${url}`);
+            const res = yield axios_1.default.get(url_1.default);
+            console.log(`URL: ${url_1.default}`);
             console.log(`Status: ${res.status}`);
             // console.log(`Time Start: ${res.config.metadata.startTime}`);
             // console.log(`Time End: ${res.config.metadata.endTime}`);
