@@ -33,18 +33,20 @@ function isError(error) {
 function default_1() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
+            // console.log(`URL: ${url}`);
             axios_1.default.interceptors.request.use(startInterceptor, isError);
             axios_1.default.interceptors.response.use(endInterceptor, isError);
             const res = yield axios_1.default.get(url_1.default);
-            console.log(`URL: ${url_1.default}`);
-            console.log(`Status: ${res.status}`);
+            console.log(`Status: ${res.status} | Duration: ${res.duration}ms`);
             // console.log(`Time Start: ${res.config.metadata.startTime}`);
             // console.log(`Time End: ${res.config.metadata.endTime}`);
-            console.log(`Duration: ${res.duration}ms`);
-            console.log();
+            // console.log(`Duration: ${res.duration }ms`);
+            process.exitCode = 0;
         }
         catch (error) {
+            console.log();
             console.error("ERROR: " + error.message);
+            console.error("ERROR RESPONSE: ", error.response);
             console.log();
         }
     });
