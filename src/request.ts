@@ -43,11 +43,11 @@ export default async function() {
     // console.log(`Time Start: ${res.config.metadata.startTime}`);
     // console.log(`Time End: ${res.config.metadata.endTime}`);
     // console.log(`Duration: ${res.duration }ms`);
-    process.exitCode = 0;    
+    // process.exitCode = 0;    
   } catch (error: any) {
-    console.log();
+    // console.log();
     console.error("ERROR: "+error.message);
-    console.error("ERROR RESPONSE: ",error.response);
-    console.log();
+    // console.error("ERROR RESPONSE: ",error.response);
+    // console.log();
   }
 }

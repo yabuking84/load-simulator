@@ -2,7 +2,7 @@ import * as childProcess  from 'child_process'
 const url = 'http://hippowalletloadbalancer-568822204.eu-central-1.elb.amazonaws.com'
 // const url = 'https://google.com'
 
-const MAX_PROCESS = 3;
+const MAX_PROCESS = 5;
 
 let times = [];
 let children = [];
